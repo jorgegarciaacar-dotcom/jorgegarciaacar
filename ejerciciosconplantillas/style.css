@@ -1,0 +1,204 @@
+/* --- CONFIGURACIÓN GENERAL Y VARIABLES --- */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #1e293b; /* Azul grisáceo oscuro */
+    --accent-blue: #0ea5e9; /* Azul cian brillante */
+    --deep-blue: #0f172a; /* Azul marino muy oscuro */
+    --light-gray: #f1f5f9;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+
+/* --- BARRA DE NAVEGACIÓN (COMÚN) --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--deep-blue);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-blue);
+    letter-spacing: 2px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+
+.nav-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+
+/* --- MODIFICACIÓN EN STYLE.CSS --- */
+.hero {
+    height: 90vh;
+    /* Hemos cambiado el enlace por el tuyo y mantenemos el degradado para que el texto blanco se lea bien */
+    background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+                url('https://imgs.search.brave.com/Fceobfn_A8w2ny1tB_xPYMDB2ZVfTE3H1Ezjzj4bOgc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXIuZG9nL2xh/cmdlLzU1MzQ0Nzgu/anBn');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+
+/* --- PLANTILLA 2: PÁGINAS DE INFORMACIÓN --- */
+.page-header {
+    background-color: var(--light-gray);
+    padding: 60px 5%;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-blue);
+}
+
+
+.page-header h1 {
+    font-size: 3rem;
+    color: var(--deep-blue);
+}
+
+
+.content-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+
+/* Animación simple */
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+}
+
+
+/* Alternar orden imagen-texto */
+.info-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+
+.info-text {
+    flex: 1;
+}
+
+
+.info-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--deep-blue);
+    position: relative;
+}
+
+
+.info-text h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-blue);
+    margin-top: 10px;
+}
+
+
+.info-image {
+    flex: 1;
+}
+
+
+.info-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0px var(--light-gray); /* Efecto decorativo limpio */
+}
+
+
+/* --- FOOTER OBLIGATORIO --- */
+footer {
+    background-color: var(--deep-blue);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 0.8rem;
+}
+
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Simplificado para el ejercicio */
+    }
+   
+    .hero h1 { font-size: 2.5rem; }
+   
+    .info-block, .info-block:nth-child(even) {
+        flex-direction: column;
+    }
+   
+    .info-text h2 { font-size: 2rem; }
+}
+
